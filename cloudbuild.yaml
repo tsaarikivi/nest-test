@@ -3,7 +3,6 @@ steps:
     id: install
     args:
       - ci
-      - --silent
 
  - name: gcr.io/cloud-builders/npm
     id: test
