@@ -66,10 +66,7 @@ workflows:
   version: 2
   test-build-deploy:
     jobs:
-      - test:
-          filters:
-            branches:
-              only: master
+      - test
       - build-deploy:
           requires:
             - test
