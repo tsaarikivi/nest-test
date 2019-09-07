@@ -1,0 +1,5 @@
+node_modules
+dist
+test
+.circleci
+npm-debug.log
