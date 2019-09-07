@@ -11,5 +11,5 @@ COPY package*.json ./
 COPY --from=build /build/dist ./dist
 RUN npm ci --production --silent
 
-EXPOSE 3000
+EXPOSE 8080
 CMD ["npm", "run", "start:prod"]
