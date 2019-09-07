@@ -1,5 +1,7 @@
 [![CircleCI](https://circleci.com/gh/tsaarikivi/nest-test/tree/master.svg?style=shield)](https://circleci.com/gh/tsaarikivi/nest-test/tree/master)
 
+Use this project as template and/or go through this list:
+
 `npm i -g @nest/cli`
 
 `nest new SERVICE_NAME`
