@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/tsaarikivi/nest-test/tree/master.svg?style=svg)](https://circleci.com/gh/tsaarikivi/nest-test/tree/master)
+[![CircleCI](https://circleci.com/gh/tsaarikivi/nest-test/tree/master.svg?style=shield)](https://circleci.com/gh/tsaarikivi/nest-test/tree/master)
 
 `npm i -g @nest/cli`
 
