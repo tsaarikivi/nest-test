@@ -21,5 +21,7 @@ steps:
       - nest-test
       - --image
       - gcr.io/$PROJECT_ID/nest-test:$SHORT_SHA
+      - --platform
+      - managed
       - --region
       - europe-west1
