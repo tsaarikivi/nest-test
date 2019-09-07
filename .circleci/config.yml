@@ -40,10 +40,10 @@ jobs:
     steps:
       - run: |
           echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
-          gcloud --quiet config set project ${GOOGLE_PROJECT_ID}
+          gcloud --quiet config set project ${GCLOUD_PROJECT_ID}
           gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
-      - run: docker build --rm=false -t gcr.io/${GOOGLE_PROJECT_ID}/nest-test:$CIRCLE_SHA1 .
-      - run: gcloud docker -- push gcr.io/${GOOGLE_PROJECT_ID}/nest-test:$CIRCLE_SHA1
+      - run: docker build --rm=false -t gcr.io/${GCLOUD_PROJECT_ID}/nest-test:$CIRCLE_SHA1 .
+      - run: gcloud docker -- push gcr.io/${GCLOUD_PROJECT_ID}/nest-test:$CIRCLE_SHA1
 
 workflows:
   version: 2
