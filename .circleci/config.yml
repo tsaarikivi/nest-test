@@ -40,6 +40,8 @@ jobs:
     # tag
     # push
     steps:
+      - checkout
+
       - run: |
           echo $GCLOUD_SERVICE_KEY | gcloud auth activate-service-account --key-file=-
           gcloud --quiet config set project ${GCLOUD_PROJECT_ID}
