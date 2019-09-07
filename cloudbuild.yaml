@@ -1,0 +1,25 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    id: build
+    args:
+      - build
+      - --tag-gcr.io/$PROJECT_ID/nest-test:$COMMIT_SHA
+      - .
+
+  - name: gcr.io/cloud-builders/docker
+    id: push
+    args:
+      - push
+      - gcr.io/$PROJECT_ID/nest-test:$COMMIT_SHA
+
+  - name: gcr.io/cloud-builders/gcloud
+    id: deploy
+    args:
+      - beta
+      - run
+      - deploy
+      - nest-test
+      - --image
+      - gcr.io/$PROJECT_ID/nest-test:$COMMIT_SHA
+      - --region
+      - europe-west1
