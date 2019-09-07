@@ -1,4 +1,16 @@
 steps:
+  - name: 'gcr.io/cloud-builders/npm'
+    id: install
+    args:
+      - ci
+      - --silent
+
+ - name: 'gcr.io/cloud-builders/npm'
+    id: test
+    args:
+      - run
+      - test
+
   - name: gcr.io/cloud-builders/docker
     id: build
     args:
