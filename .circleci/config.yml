@@ -30,6 +30,13 @@ jobs:
       # run tests
       - run: npm test
 
+      - store_test_results:
+          path: test_results
+
+      - store_artifacts:
+          path: test_results
+          destination: test_results
+
   build-deploy:
     docker:
       - image: google/cloud-sdk
