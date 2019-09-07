@@ -30,7 +30,7 @@ jobs:
       # run tests
       - run: npm test
 
-  build:
+  build-deploy:
     docker:
       - image: google/cloud-sdk
 
@@ -58,16 +58,17 @@ jobs:
           gcloud docker --authorize-only
       - run: docker build --rm=false -t gcr.io/${GCLOUD_PROJECT_ID}/nest-test:$CIRCLE_SHA1 .
       - run: docker push gcr.io/${GCLOUD_PROJECT_ID}/nest-test:$CIRCLE_SHA1
+      - run: gcloud beta run deploy nest-test --image gcr.io/${GCLOUD_PROJECT_ID}/nest-test:$CIRCLE_SHA1 --platform managed --region europe-west1 --allow-unauthenticated
 
 workflows:
   version: 2
-  build-and-deploy:
+  test-build-deploy:
     jobs:
       - test:
           filters:
             branches:
               only: master
-      - build:
+      - build-deploy:
           requires:
             - test
           filters:
