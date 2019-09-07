@@ -58,9 +58,9 @@ jobs:
           gcloud --quiet config set project ${GCLOUD_PROJECT_ID}
           gcloud --quiet config set compute/zone ${GOOGLE_COMPUTE_ZONE}
           gcloud docker --authorize-only
-      - run: docker build --rm=false -t gcr.io/${GCLOUD_PROJECT_ID}/nest-test:$CIRCLE_SHA1 .
-      - run: docker push gcr.io/${GCLOUD_PROJECT_ID}/nest-test:$CIRCLE_SHA1
-      - run: gcloud beta run deploy nest-test --image gcr.io/${GCLOUD_PROJECT_ID}/nest-test:$CIRCLE_SHA1 --platform managed --region europe-west1 --allow-unauthenticated
+      - run: docker build --rm=false -t gcr.io/${GCLOUD_PROJECT_ID}/${SVC_NAME}:$CIRCLE_SHA1 .
+      - run: docker push gcr.io/${GCLOUD_PROJECT_ID}/${SVC_NAME}:$CIRCLE_SHA1
+      - run: gcloud beta run deploy ${SVC_NAME} --image gcr.io/${GCLOUD_PROJECT_ID}/${SVC_NAME}:$CIRCLE_SHA1 --platform managed --region europe-west1 --allow-unauthenticated
 
 workflows:
   version: 2
